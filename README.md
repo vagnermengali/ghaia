@@ -87,7 +87,7 @@ A API tem um total de 4 endpoints, podendo escanear o documento CNAB, listar tra
 
 <p>A url base da API é <a href="http://localhost:8000/api/">http://localhost:8000/api/</a></p>
 
-<h2 align ='center'> Listando transações </h2>
+<h2 align ='center'> Usuário </h2>
 
 Nessa aplicação o usuário sem fazer login ou se cadastrar pode ver as transações do documento escaneado:
 
@@ -96,50 +96,11 @@ Nessa aplicação o usuário sem fazer login ou se cadastrar pode ver as transa�
 ```
 Não é necessário um corpo da requisição.
 ```
-
-`GET /api/transaction/ - FORMATO DA RESPOSTA - STATUS 200`
-
-```json
-{
-    "total": 3,
-    "results": [
-        {
-            "id": "8a1968e2-a7a6-4d8e-b4f9-2725e1d5d77d",
-            "transaction": "2",
-            "date": "2019-03-01",
-            "value": "112.00",
-            "hour": "23:42:34",
-            "store": "BAR DO JOAO"
-        },
-        {
-            "id": "be6c647f-8374-4f29-ac55-d4b12f9f8558",
-            "transaction": "9",
-            "date": "2019-03-01",
-            "value": "102.00",
-            "hour": "00:00:00",
-            "store": "LOJA DO O MATRIZ"
-        },
-        {
-            "id": "44abeadc-f60d-48d6-9a86-380721e171e3",
-            "transaction": "2",
-            "date": "2019-03-01",
-            "value": "5.00",
-            "hour": "14:18:08",
-            "store": "MERCEARIA 3 IRMAOS"
-        },
-    ]
-}
 ```
 
-<h2 align ='center'> Deletando transações </h2>
+<h2 align ='center'> Propriedades </h2>
 
 Nessa aplicação o usuário sem fazer login ou se cadastrar pode apagar as transações salvas para fazer um novo escaneado:
-
-`DELETE /api/transaction/delete/ - FORMATO DA REQUISIÇÃO`
-
-```
-Não é necessário um corpo da requisição.
-```
 
 `DELETE /api/transaction/delete/ - FORMATO DA RESPOSTA - STATUS 204`
 
@@ -149,7 +110,7 @@ Não é necessário um corpo da requisição.
 }
 ```
 
-<h2 align ='center'> Buscar transações de loja específica  </h2>
+<h2 align ='center'> Contatos </h2>
 
 Nessa aplicação o usuário sem fazer login ou se cadastrar pode ver as transações específicas de uma determinada loja do documento escaneado:
 
@@ -159,42 +120,9 @@ Nessa aplicação o usuário sem fazer login ou se cadastrar pode ver as transa�
 Não é necessário um corpo da requisição.
 ```
 
-`GET /api/transaction/store/store+name/ - FORMATO DA RESPOSTA - STATUS 200`
-
-```json
-{
-    "total": 2,
-    "total_value": 40.0,
-    "results": [
-        {
-            "id": "8a1968e2-a7a6-4d8e-b4f9-2725e1d5d77d",
-            "transaction": "2",
-            "date": "2019-03-01",
-            "value": "112.00",
-            "hour": "23:42:34",
-            "store": "BAR DO JOAO"
-        },
-        {
-            "id": "14e70b44-d03c-449c-ab5b-3dc5275ccfd1",
-            "transaction": "1",
-            "date": "2019-03-01",
-            "value": "152.00",
-            "hour": "23:30:00",
-            "store": "BAR DO JOAO"
-        }
-    ]
-}
-```
-
-<h2 align ='center'> Escaneamento do documento CNAB </h2>
+<h2 align ='center'> Propriedades </h2>
 
 Nessa aplicação o usuário sem fazer login ou se cadastrar fazer o upload do arquivo e assim escanear o documento:
-
-`POST /api/transaction/file-scan/ - FORMATO DA REQUISIÇÃO`
-
-```
-Não é necessário um corpo da requisição.
-```
 
 `POST /api/transaction/file-scan/ - FORMATO DA RESPOSTA - STATUS 200`
 
@@ -216,45 +144,6 @@ Não há transações a serem listadas.
     "details": "Transaction list is empty"
 }
 ```
-
-Não há transações a serem deletadas.
-
-`DELETE /api/transaction/delete/ - FORMATO DA RESPOSTA - STATUS 404`
-
-```json
-{
-    "details": "There are no transactions to delete"
-}
-```
-
-Buscar por histórico de transações de loja específica com lista de transação vazia.
-
-`GET /api/transaction/ - FORMATO DA RESPOSTA - STATUS 404`
-
-```json
-{
-    "details": "Store not found",
-    "stores": []
-}
-```
-Buscar por histórico de transações de loja específica não encontrada.
-
-`GET /api/transaction/ - FORMATO DA RESPOSTA - STATUS 404`
-
-```json
-{
-    "details": "Store not found",
-    "stores": [
-        "MERCADO DA AVENIDA",
-        "BAR DO JOAO",
-        "MERCEARIA 3 IRMAOS",
-        "LOJA DO O MATRIZ",
-        "LOJA DO O FILIAL"
-    ]
-}
-```
-<p align ='center'><a href="#--scanner-cnab" >Voltar ao início</a></p>
-
 ---
 
 ## **Swagger** 
