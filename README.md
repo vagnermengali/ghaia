@@ -45,7 +45,7 @@ yarn prisma migrate dev
 <p>8. Ative o server:</p>
 
 ```
-yarn start:dev
+yarn start
 ```
 <p align ='center'><a href="#--scanner-cnab" >Voltar ao início</a></p>
 
@@ -91,44 +91,134 @@ A API tem um total de 4 endpoints, podendo escanear o documento CNAB, listar tra
 
 Nessa aplicação o usuário sem fazer login ou se cadastrar pode ver as transações do documento escaneado:
 
-`GET /api/transaction/ - FORMATO DA REQUISIÇÃO`
+`GET /users - FORMATO DA REQUISIÇÃO`
 
 ```
 Não é necessário um corpo da requisição.
 ```
+
+`GET /users/profile - FORMATO DA REQUISIÇÃO`
+
+```
+Não é necessário um corpo da requisição.
 ```
 
-<h2 align ='center'> Propriedades </h2>
+`POST /users - FORMATO DA REQUISIÇÃO`
 
-Nessa aplicação o usuário sem fazer login ou se cadastrar pode apagar as transações salvas para fazer um novo escaneado:
+```
+Não é necessário um corpo da requisição.
+```
 
-`DELETE /api/transaction/delete/ - FORMATO DA RESPOSTA - STATUS 204`
+`PATCH /users/update - FORMATO DA REQUISIÇÃO`
 
-```json
-{
-    "details": "Transactions have been successfully deleted"
-}
+```
+Não é necessário um corpo da requisição.
+```
+
+`DELETE /users - FORMATO DA REQUISIÇÃO`
+
+```
+Não é necessário um corpo da requisição.
+```
+
+<h2 align ='center'> Login </h2>
+
+Nessa aplicação o usuário sem fazer login ou se cadastrar pode ver as transações específicas de uma determinada loja do documento escaneado:
+
+`POST /login - FORMATO DA REQUISIÇÃO`
+
+```
+TEST
 ```
 
 <h2 align ='center'> Contatos </h2>
 
-Nessa aplicação o usuário sem fazer login ou se cadastrar pode ver as transações específicas de uma determinada loja do documento escaneado:
+Nessa aplicação o usuário sem fazer login ou se cadastrar pode apagar as transações salvas para fazer um novo escaneado:
 
-`GET /api/transaction/store/store_name/ - FORMATO DA REQUISIÇÃO`
+`GET /contacts/:id - FORMATO DA RESPOSTA - STATUS 204`
 
+```json
+TEST
 ```
-Não é necessário um corpo da requisição.
+
+`GET /contacts/download/:id - FORMATO DA RESPOSTA - STATUS 204`
+
+```json
+TEST
+```
+
+`GET /contacts/user/:id - FORMATO DA RESPOSTA - STATUS 204`
+
+```json
+TEST
+```
+`POST /contacts- FORMATO DA RESPOSTA - STATUS 204`
+
+```json
+TEST
+```
+
+`PATCH /contacts/:id - FORMATO DA RESPOSTA - STATUS 204`
+
+```json
+TEST
+```
+
+`DELETE /contacts/:id - FORMATO DA RESPOSTA - STATUS 204`
+
+```json
+TEST
 ```
 
 <h2 align ='center'> Propriedades </h2>
 
 Nessa aplicação o usuário sem fazer login ou se cadastrar fazer o upload do arquivo e assim escanear o documento:
 
-`POST /api/transaction/file-scan/ - FORMATO DA RESPOSTA - STATUS 200`
+`GET /properties - FORMATO DA RESPOSTA - STATUS 200`
 
 ```json
 {
-    "details": "Scan completed successfully"
+    TEST
+}
+```
+
+`GET /properties/:id - FORMATO DA RESPOSTA - STATUS 200`
+
+```json
+{
+    TEST
+}
+```
+
+`GET /properties/user/info - FORMATO DA RESPOSTA - STATUS 200`
+
+```json
+{
+    TEST
+}
+```
+
+`POST /properties - FORMATO DA RESPOSTA - STATUS 200`
+
+```json
+{
+    TEST
+}
+```
+
+`PATCH /properties/:id - FORMATO DA RESPOSTA - STATUS 200`
+
+```json
+{
+    TEST
+}
+```
+
+`DELETE /properties/:id - FORMATO DA RESPOSTA - STATUS 200`
+
+```json
+{
+    TEST
 }
 ```
 
