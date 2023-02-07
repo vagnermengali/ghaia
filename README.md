@@ -1,12 +1,102 @@
+##
+<h1 align="center">
+  Ghaia
+</h1>
+
+<p align = "center">
+Este é um aplicação que tem a finalidade de facilitar o comercio de compra e venda e imóveis
+</p>
+
+<p align="center">
+  <a href="#instalação">Instalação</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="#aplicação">Aplicação</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="#endpoints">Endpoints</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="#swagger">Swagger</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
+
+## **Instalação**
+
+A seguir esta o passo-a-passo de instalação e execução em ambiente de desenvolvimento<br/>
+
+<p>1. Clone o repositório:</p>
+
+```
+git clone https://github.com/vagnermengali/ghaia
+```
+<p>2. Adentre na pasta raiz do projeto:</p>
+  
+```
+cd ghaia/api
+```
+<p>3. Instale as dependências do projeto:</p>
+
+```
+yarn ou yarn install
+```
+<p>4. Crie seu schema:</p>
+
+```
+yarn prisma generate
+```
+<p>7. Aplique suas migrações:</p>
+  
+```
+yarn prisma migrate dev
+```
+<p>8. Ative o server:</p>
+
+```
+yarn start
+```
+<p>9. Rode os testes:</p>
+
+```
+yarn test
+```
+
+<p align ='center'><a href="#--ghaia" >Voltar ao início</a></p>
+
+---
+
+## **Aplicação**
+
+Depois que api ja estiver iniciada em sua máquina, prossiga com o passo-a-passo de usabilidade da aplicação, porém se opitar por na instalar o frontend disponibilizamos o [link do deploy](https://scanner-cnab-pce1-git-main-vagnermengali.vercel.app/)<br/>
+
+
+<p>1. Clone o repositório:</p>
+
+```
+git clone https://github.com/vagnermengali/ghaia
+```
+<p>2. Adentre na pasta raiz do projeto:</p>
+  
+```
+cd ghaia/interface
+```
+<p>3. Crie sua node module:</p>
+  
+```
+yarn ou yarn install   
+```
+<p>4. Ative o server:</p>
+
+```
+yarn dev
+```
+<p align ='center'><a href="#--ghaia" >Voltar ao início</a></p>
+
+---
+
+
 ## **Endpoints**
 
 A API tem um total de 4 endpoints, podendo escanear o documento CNAB, listar transações, loja específica e deleção de todas as transações para um novo escaneamento. <br/>
 
-<p>A url base da API é <a href="http://localhost:8000/api/">http://localhost:8000/api/</a></p>
-
 <h2 align ='center'> Usuário </h2>
 
 Nessa aplicação o usuário sem fazer login ou se cadastrar pode ver as transações do documento escaneado:
+
+##
 
 `GET /users - FORMATO DA REQUISIÇÃO`
 
@@ -39,6 +129,8 @@ Não é necessário um corpo da requisição.
 ]
 ```
 
+##
+
 `GET /users/profile - FORMATO DA REQUISIÇÃO`
 
 ```
@@ -60,6 +152,7 @@ Não é necessário um corpo da requisição.
   "properties": []
 }
 ```
+##
 
 `POST /users - FORMATO DA REQUISIÇÃO`
 
@@ -86,6 +179,7 @@ Não é necessário um corpo da requisição.
   "updated_at": "2023-02-07T01:26:32.583Z"
 }
 ```
+##
 
 `PATCH /users/update - FORMATO DA REQUISIÇÃO`
 
@@ -111,6 +205,7 @@ Não é necessário um corpo da requisição.
   "updated_at": "2023-02-07T01:53:35.893Z"
 }
 ```
+##
 
 `DELETE /users - FORMATO DA REQUISIÇÃO`
 ```
@@ -122,20 +217,15 @@ Não é necessário um corpo da requisição.
 ```
 Não a corpo de retorno.
 ```
+##
 
 <h2 align ='center'> Login </h2>
 
 Nessa aplicação o usuário sem fazer login ou se cadastrar pode ver as transações específicas de uma determinada loja do documento escaneado:
 
+##
+
 `POST /login - FORMATO DA REQUISIÇÃO`
-
-```json
-{
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZhZ25lckBtYWlsLmNvbSIsImlhdCI6MTY3NTcxODE3OSwiZXhwIjoxNjc1ODA0NTc5LCJzdWIiOiIyMTkxODVhMy0zMzUyLTQwMTQtOWM0NC1iM2VhYWU0MWI5ZDIifQ.ze8Q4Ia3n3D3Cya88swZbPlqbsPWFr4RAjgiKXSjDgw"
-}
-```
-
-`POST /login - FORMATO DA RESPOSTA - STATUS 201`
 
 ```json
 {
@@ -144,9 +234,21 @@ Nessa aplicação o usuário sem fazer login ou se cadastrar pode ver as transa�
 }
 ```
 
+`POST /login - FORMATO DA RESPOSTA - STATUS 201`
+
+```json
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZhZ25lckBtYWlsLmNvbSIsImlhdCI6MTY3NTcxODE3OSwiZXhwIjoxNjc1ODA0NTc5LCJzdWIiOiIyMTkxODVhMy0zMzUyLTQwMTQtOWM0NC1iM2VhYWU0MWI5ZDIifQ.ze8Q4Ia3n3D3Cya88swZbPlqbsPWFr4RAjgiKXSjDgw"
+}
+```
+
+##
+
 <h2 align ='center'> Contatos </h2>
 
 Nessa aplicação o usuário sem fazer login ou se cadastrar pode apagar as transações salvas para fazer um novo escaneado:
+
+##
 
 `GET /contacts/download/info - FORMATO DA REQUISIÇÃO`
 
@@ -159,6 +261,7 @@ Não é necessário um corpo da requisição.
 ```
 Retorna um pdf no corpo do retorno
 ```
+##
 
 `GET /contacts/:id - FORMATO DA REQUISIÇÃO`
 
@@ -178,6 +281,7 @@ Não é necessário um corpo da requisição.
   "updated_at": "2023-02-07T02:26:58.026Z"
 }
 ```
+##
 
 `GET /contacts/user/info - FORMATO DA REQUISIÇÃO`
 
@@ -217,6 +321,7 @@ Não é necessário um corpo da requisição.
   ]
 }
 ```
+##
 
 `POST /contacts - FORMATO DA REQUISIÇÃO`
 
@@ -241,6 +346,7 @@ Não é necessário um corpo da requisição.
   "updated_at": "2023-02-07T02:24:31.346Z"
 }
 ```
+##
 
 `PATCH /contacts/:id - FORMATO DA REQUISIÇÃO`
 
@@ -267,6 +373,7 @@ Não é necessário um corpo da requisição.
   "updated_at": "2023-02-07T02:20:52.848Z"
 }
 ```
+##
 
 `DELETE /properties - FORMATO DA REQUISIÇÃO`
 ```
@@ -278,10 +385,13 @@ Não é necessário um corpo da requisição.
 ```
 Não a corpo de retorno.
 ```
+##
 
 <h2 align ='center'> Propriedades </h2>
 
 Nessa aplicação o usuário sem fazer login ou se cadastrar fazer o upload do arquivo e assim escanear o documento:
+
+##
 
 `GET /properties - FORMATO DA REQUISIÇÃO`
 
@@ -315,6 +425,7 @@ Não é necessário um corpo da requisição.
   }
 ]
 ```
+##
 
 `GET /properties/:id - FORMATO DA REQUISIÇÃO`
 
@@ -335,6 +446,7 @@ Não é necessário um corpo da requisição.
   "updated_at": "2023-02-07T02:03:47.939Z"
 }
 ```
+##
 
 `GET /properties/user/info - FORMATO DA REQUISIÇÃO`
 
@@ -376,6 +488,7 @@ Não é necessário um corpo da requisição.
   ]
 }
 ```
+##
 
 `POST /properties - FORMATO DA REQUISIÇÃO`
 
@@ -402,6 +515,7 @@ Não é necessário um corpo da requisição.
   "updated_at": "2023-02-07T02:03:47.939Z"
 }
 ```
+##
 
 `PATCH /properties/:id - FORMATO DA REQUISIÇÃO`
 
@@ -428,6 +542,7 @@ Não é necessário um corpo da requisição.
   "updated_at": "2023-02-07T02:20:52.848Z"
 }
 ```
+##
 
 `DELETE /properties - FORMATO DA REQUISIÇÃO`
 ```
@@ -439,19 +554,8 @@ Não é necessário um corpo da requisição.
 ```
 Não a corpo de retorno.
 ```
+##
 
-<h2 align ='center'> Possíveis erros </h2>
-
-Caso você acabe errando e mandando algum campo errado, a resposta de erro será assim:
-Não há transações a serem listadas.
-
-`GET /api/transaction/ - FORMATO DA RESPOSTA - STATUS 404`
-
-```json
-{
-    "details": "Transaction list is empty"
-}
-```
 ---
 
 ## **Swagger** 
@@ -460,7 +564,7 @@ Api também conta a rota de interação, manipulação e documentação mais det
 
 `api/`
 
-<p align ='center'><a href="#--scanner-cnab" >Voltar ao início</a></p>
+<p align ='center'><a href="#--ghaia" >Voltar ao início</a></p>
 
 ---
 
