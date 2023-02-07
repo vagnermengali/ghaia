@@ -60,7 +60,7 @@ yarn test
 
 ## **Aplicação**
 
-Depois que api ja estiver iniciada em sua máquina, prossiga com o passo-a-passo de usabilidade da aplicação, porém se opitar por na instalar o frontend disponibilizamos o [link do deploy](https://scanner-cnab-pce1-git-main-vagnermengali.vercel.app/)<br/>
+Depois que api ja estiver iniciada em sua máquina, prossiga com o passo-a-passo de usabilidade da aplicação, porém se opitar por na instalar o frontend disponibilizamos o [link do deploy]()<br/>
 
 
 <p>1. Clone o repositório:</p>
@@ -90,11 +90,11 @@ yarn dev
 
 ## **Endpoints**
 
-A API tem um total de 4 endpoints, podendo escanear o documento CNAB, listar transações, loja específica e deleção de todas as transações para um novo escaneamento. <br/>
+A API esta divida em /users, /login, /contacts e /properties, podendo fazer todos o processo de cadastro e login de usuário, além de casdastro de contantos e propriedades e todas contendo um CRUD. <br/>
 
 <h2 align ='center'> Usuário </h2>
 
-Nessa aplicação o usuário sem fazer login ou se cadastrar pode ver as transações do documento escaneado:
+Nessa rotas o usuário pode acessar sem o token apenas POST/users e GET/users, do mais usará o token para executar o CRUD de usuário :
 
 ##
 
@@ -221,7 +221,7 @@ Não a corpo de retorno.
 
 <h2 align ='center'> Login </h2>
 
-Nessa aplicação o usuário sem fazer login ou se cadastrar pode ver as transações específicas de uma determinada loja do documento escaneado:
+Nessa rota o usuário pode acessar sem o token para efetuar o login :
 
 ##
 
@@ -246,7 +246,7 @@ Nessa aplicação o usuário sem fazer login ou se cadastrar pode ver as transa�
 
 <h2 align ='center'> Contatos </h2>
 
-Nessa aplicação o usuário sem fazer login ou se cadastrar pode apagar as transações salvas para fazer um novo escaneado:
+Nessas rotas o usuário deve ter o token para acesso, assim poderá executar o CRUD de contatos :
 
 ##
 
@@ -389,7 +389,7 @@ Não a corpo de retorno.
 
 <h2 align ='center'> Propriedades </h2>
 
-Nessa aplicação o usuário sem fazer login ou se cadastrar fazer o upload do arquivo e assim escanear o documento:
+Nessas rotas o usuário deve ter o token para acesso, assim poderá executar o CRUD de properiedades :
 
 ##
 
