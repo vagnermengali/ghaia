@@ -12,6 +12,7 @@ Nessa aplicação o usuário sem fazer login ou se cadastrar pode ver as transa�
 
 ```
 Não é necessário um corpo da requisição.
+
 ```
 `GET /users - FORMATO DA RESPOSTA - STATUS 200`
 
@@ -43,6 +44,7 @@ Não é necessário um corpo da requisição.
 ```
 Não é necessário um corpo da requisição.
 ```
+
 `GET /users/profile - FORMATO DA RESPOSTA - STATUS 201`
 
 ```json
@@ -60,6 +62,7 @@ Não é necessário um corpo da requisição.
 ```
 
 `POST /users - FORMATO DA REQUISIÇÃO`
+
 ```json
 {
   "username": "Leo Moreira",
@@ -69,6 +72,7 @@ Não é necessário um corpo da requisição.
   "telephone": "+55 18 921212131"
 }
 ```
+
 `POST /users- FORMATO DA RESPOSTA - STATUS 201`
 
 ```json
@@ -82,6 +86,7 @@ Não é necessário um corpo da requisição.
   "updated_at": "2023-02-07T01:26:32.583Z"
 }
 ```
+
 `PATCH /users/update - FORMATO DA REQUISIÇÃO`
 
 ```json
@@ -92,6 +97,7 @@ Não é necessário um corpo da requisição.
   "telephone": "+55 18 981813481"
 }
 ```
+
 `PATCH /users/update/ - FORMATO DA RESPOSTA - STATUS 200`
 
 ```json
@@ -105,10 +111,12 @@ Não é necessário um corpo da requisição.
   "updated_at": "2023-02-07T01:53:35.893Z"
 }
 ```
+
 `DELETE /users - FORMATO DA REQUISIÇÃO`
 ```
 Não é necessário um corpo da requisição.
 ```
+
 `DELETE /users - FORMATO DA RESPOSTA - STATUS 204`
 
 ```
@@ -120,11 +128,13 @@ Não a corpo de retorno.
 Nessa aplicação o usuário sem fazer login ou se cadastrar pode ver as transações específicas de uma determinada loja do documento escaneado:
 
 `POST /login - FORMATO DA REQUISIÇÃO`
+
 ```json
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZhZ25lckBtYWlsLmNvbSIsImlhdCI6MTY3NTcxODE3OSwiZXhwIjoxNjc1ODA0NTc5LCJzdWIiOiIyMTkxODVhMy0zMzUyLTQwMTQtOWM0NC1iM2VhYWU0MWI5ZDIifQ.ze8Q4Ia3n3D3Cya88swZbPlqbsPWFr4RAjgiKXSjDgw"
 }
 ```
+
 `POST /login - FORMATO DA RESPOSTA - STATUS 201`
 
 ```json
@@ -177,35 +187,134 @@ TEST
 
 Nessa aplicação o usuário sem fazer login ou se cadastrar fazer o upload do arquivo e assim escanear o documento:
 
+`GET /properties - FORMATO DA REQUISIÇÃO`
+
+```
+Não é necessário um corpo da requisição.
+```
+
 `GET /properties - FORMATO DA RESPOSTA - STATUS 200`
 
 ```json
-{
-    TEST
-}
+[
+  {
+    "id": "1e284726-26a4-41ca-9537-1dcc22e53381",
+    "name": "Casa",
+    "details": "Aluga-se",
+    "localization": "Rio de janeiro",
+    "image_url": "http://casa.jpg",
+    "userId": "7388d143-01a1-4463-a815-a6dc21693c90",
+    "created_at": "2023-02-07T02:03:47.939Z",
+    "updated_at": "2023-02-07T02:03:47.939Z"
+  },
+  {
+    "id": "8f3bc0f0-8b91-40be-ad57-13b6890bb19d",
+    "name": "Apartamento",
+    "details": "Vende-se",
+    "localization": "São Paulo",
+    "image_url": "http://ap.jpg",
+    "userId": "7388d143-01a1-4463-a815-a6dc21693c90",
+    "created_at": "2023-02-07T02:13:38.734Z",
+    "updated_at": "2023-02-07T02:13:38.734Z"
+  }
+]
 ```
 
+`GET /properties/:id - FORMATO DA REQUISIÇÃO`
+
+```
+Não é necessário um corpo da requisição.
+```
 `GET /properties/:id - FORMATO DA RESPOSTA - STATUS 200`
 
 ```json
 {
-    TEST
+  "id": "1e284726-26a4-41ca-9537-1dcc22e53381",
+  "name": "Casa",
+  "details": "Aluga-se",
+  "localization": "Rio de janeiro",
+  "image_url": "http://casa.jpg",
+  "userId": "7388d143-01a1-4463-a815-a6dc21693c90",
+  "created_at": "2023-02-07T02:03:47.939Z",
+  "updated_at": "2023-02-07T02:03:47.939Z"
 }
 ```
 
+`GET /properties/user/info - FORMATO DA REQUISIÇÃO`
+
+```
+Não é necessário um corpo da requisição.
+```
 `GET /properties/user/info - FORMATO DA RESPOSTA - STATUS 200`
 
 ```json
 {
-    TEST
+    "id": "7388d143-01a1-4463-a815-a6dc21693c90",
+    "username": "Leo Moreira",
+    "avatar_url": "https://tejpg.jpg",
+    "email": "leo@mail.com",
+    "telephone": "+55 18 981813481",
+    "created_at": "2023-02-07T01:26:32.583Z",
+    "updated_at": "2023-02-07T01:53:35.893Z",
+    "properties": [
+    {
+      "id": "1e284726-26a4-41ca-9537-1dcc22e53381",
+      "name": "Casa",
+      "details": "Aluga-se",
+      "localization": "Rio de janeiro",
+      "image_url": "http://casa.jpg",
+      "userId": "7388d143-01a1-4463-a815-a6dc21693c90",
+      "created_at": "2023-02-07T02:03:47.939Z",
+      "updated_at": "2023-02-07T02:03:47.939Z"
+    },
+    {
+      "id": "8f3bc0f0-8b91-40be-ad57-13b6890bb19d",
+      "name": "Apartamento",
+      "details": "Vende-se",
+      "localization": "São Paulo",
+      "image_url": "http://ap.jpg",
+      "userId": "7388d143-01a1-4463-a815-a6dc21693c90",
+      "created_at": "2023-02-07T02:13:38.734Z",
+      "updated_at": "2023-02-07T02:13:38.734Z"
+    }
+  ]
 }
 ```
 
-`POST /properties - FORMATO DA RESPOSTA - STATUS 200`
+`POST /properties - FORMATO DA REQUISIÇÃO`
 
 ```json
 {
-    TEST
+  "name": "Casa",
+  "details": "Aluga-se",
+  "localization": "Rio de janeiro",
+  "image_url": "http://casa.jpg"
+}
+```
+
+`POST /properties - FORMATO DA RESPOSTA - STATUS 201`
+
+```json
+{
+  "id": "1e284726-26a4-41ca-9537-1dcc22e53381",
+  "name": "Casa",
+  "details": "Aluga-se",
+  "localization": "Rio de janeiro",
+  "image_url": "http://casa.jpg",
+  "userId": "7388d143-01a1-4463-a815-a6dc21693c90",
+  "created_at": "2023-02-07T02:03:47.939Z",
+  "updated_at": "2023-02-07T02:03:47.939Z"
+}
+```
+
+`PATCH /properties/:id - FORMATO DA REQUISIÇÃO`
+
+```json
+{
+  "name": "Casa na praia",
+  "details": "Vende-se",
+  "localization": "Rio de janeiro, Tijuca",
+  "image_url": "http://casa.jpg"
 }
 ```
 
@@ -213,16 +322,26 @@ Nessa aplicação o usuário sem fazer login ou se cadastrar fazer o upload do a
 
 ```json
 {
-    TEST
+  "id": "1e284726-26a4-41ca-9537-1dcc22e53381",
+  "name": "Casa na praia",
+  "details": "Vende-se",
+  "localization": "Rio de janeiro, Tijuca",
+  "image_url": "http://casa.jpg",
+  "userId": "7388d143-01a1-4463-a815-a6dc21693c90",
+  "created_at": "2023-02-07T02:03:47.939Z",
+  "updated_at": "2023-02-07T02:20:52.848Z"
 }
 ```
 
-`DELETE /properties/:id - FORMATO DA RESPOSTA - STATUS 200`
+`DELETE /properties - FORMATO DA REQUISIÇÃO`
+```
+Não é necessário um corpo da requisição.
+```
 
-```json
-{
-    TEST
-}
+`DELETE /properties - FORMATO DA RESPOSTA - STATUS 204`
+
+```
+Não a corpo de retorno.
 ```
 
 <h2 align ='center'> Possíveis erros </h2>
