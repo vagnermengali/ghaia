@@ -148,39 +148,135 @@ Nessa aplicação o usuário sem fazer login ou se cadastrar pode ver as transa�
 
 Nessa aplicação o usuário sem fazer login ou se cadastrar pode apagar as transações salvas para fazer um novo escaneado:
 
-`GET /contacts/:id - FORMATO DA RESPOSTA - STATUS 204`
+`GET /contacts/download/info - FORMATO DA REQUISIÇÃO`
 
-```json
-TEST
+```
+Não é necessário um corpo da requisição.
 ```
 
-`GET /contacts/download/:id - FORMATO DA RESPOSTA - STATUS 204`
+`GET /contacts/download/info - FORMATO DA RESPOSTA - STATUS 200`
 
-```json
-TEST
+```
+Retorna um pdf no corpo do retorno
 ```
 
-`GET /contacts/user/:id - FORMATO DA RESPOSTA - STATUS 204`
+`GET /contacts/:id - FORMATO DA REQUISIÇÃO`
 
-```json
-TEST
 ```
-`POST /contacts- FORMATO DA RESPOSTA - STATUS 204`
+Não é necessário um corpo da requisição.
+```
+`GET /contacts/:id - FORMATO DA RESPOSTA - STATUS 200`
 
 ```json
-TEST
+{
+  "id": "1a00dc9b-689e-4896-b143-673f11d98e91",
+  "name": "Pedro SP",
+  "email": "pedro@mail.com",
+  "telephone": "+55 19 981523189",
+  "userId": "7388d143-01a1-4463-a815-a6dc21693c90",
+  "created_at": "2023-02-07T02:26:58.026Z",
+  "updated_at": "2023-02-07T02:26:58.026Z"
+}
 ```
 
-`PATCH /contacts/:id - FORMATO DA RESPOSTA - STATUS 204`
+`GET /contacts/user/info - FORMATO DA REQUISIÇÃO`
+
+```
+Não é necessário um corpo da requisição.
+```
+`GET /contacts/user/info - FORMATO DA RESPOSTA - STATUS 200`
 
 ```json
-TEST
+{
+  "id": "7388d143-01a1-4463-a815-a6dc21693c90",
+  "username": "Leo Moreira de Aouza",
+  "avatar_url": "https://tejpg.jpg",
+  "email": "leo123@mail.com",
+  "telephone": "+55 18 981813481",
+  "created_at": "2023-02-07T01:26:32.583Z",
+  "updated_at": "2023-02-07T01:53:35.893Z",
+  "contacts": [
+    {
+      "id": "2eb68981-dbda-48f1-a45b-3df628b85936",
+      "name": "Marcelo",
+      "email": "marcelo@mail.com",
+      "telephone": "+55 19 981323189",
+      "userId": "7388d143-01a1-4463-a815-a6dc21693c90",
+      "created_at": "2023-02-07T02:24:31.346Z",
+      "updated_at": "2023-02-07T02:24:31.346Z"
+    },
+    {
+      "id": "1a00dc9b-689e-4896-b143-673f11d98e91",
+      "name": "Pedro SP",
+      "email": "pedro@mail.com",
+      "telephone": "+55 19 981523189",
+      "userId": "7388d143-01a1-4463-a815-a6dc21693c90",
+      "created_at": "2023-02-07T02:26:58.026Z",
+      "updated_at": "2023-02-07T02:26:58.026Z"
+    }
+  ]
+}
 ```
 
-`DELETE /contacts/:id - FORMATO DA RESPOSTA - STATUS 204`
+`POST /contacts - FORMATO DA REQUISIÇÃO`
 
 ```json
-TEST
+{
+  "name": "Marcelo",
+  "email": "marcelo@mail.com",
+  "telephone": "+55 19 981323189"
+}
+```
+
+`POST /contacts - FORMATO DA RESPOSTA - STATUS 201`
+
+```json
+{
+  "id": "2eb68981-dbda-48f1-a45b-3df628b85936",
+  "name": "Marcelo",
+  "email": "marcelo@mail.com",
+  "telephone": "+55 19 981323189",
+  "userId": "7388d143-01a1-4463-a815-a6dc21693c90",
+  "created_at": "2023-02-07T02:24:31.346Z",
+  "updated_at": "2023-02-07T02:24:31.346Z"
+}
+```
+
+`PATCH /contacts/:id - FORMATO DA REQUISIÇÃO`
+
+```json
+{
+  "name": "Casa na praia",
+  "details": "Vende-se",
+  "localization": "Rio de janeiro, Tijuca",
+  "image_url": "http://casa.jpg"
+}
+```
+
+`PATCH /contacts/:id - FORMATO DA RESPOSTA - STATUS 200`
+
+```json
+{
+  "id": "1e284726-26a4-41ca-9537-1dcc22e53381",
+  "name": "Casa na praia",
+  "details": "Vende-se",
+  "localization": "Rio de janeiro, Tijuca",
+  "image_url": "http://casa.jpg",
+  "userId": "7388d143-01a1-4463-a815-a6dc21693c90",
+  "created_at": "2023-02-07T02:03:47.939Z",
+  "updated_at": "2023-02-07T02:20:52.848Z"
+}
+```
+
+`DELETE /properties - FORMATO DA REQUISIÇÃO`
+```
+Não é necessário um corpo da requisição.
+```
+
+`DELETE /properties - FORMATO DA RESPOSTA - STATUS 204`
+
+```
+Não a corpo de retorno.
 ```
 
 <h2 align ='center'> Propriedades </h2>
