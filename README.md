@@ -90,6 +90,10 @@ yarn dev
 
 ## **Endpoints**
 
+<a href="#-usuário-">Usuário</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#-contatos-">Contatos</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#-propriedades-">Properiedades</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 A API esta divida em /users, /login, /contacts e /properties, podendo fazer todos o processo de cadastro e login de usuário, além de casdastro de contantos e propriedades e todas contendo um CRUD. <br/>
 
 <h2 align ='center'> Usuário </h2>
